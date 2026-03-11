@@ -1,0 +1,30 @@
+stages:
+
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+      - src/preprocess.py
+      - data/student_salary.csv
+    outs:
+      - data/X_train.csv
+      - data/X_test.csv
+      - data/y_train.csv
+      - data/y_test.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/X_train.csv
+      - data/y_train.csv
+    outs:
+      - models/model.pkl
+
+  tune:
+    cmd: python src/tune.py
+    deps:
+      - src/tune.py
+      - data/X_train.csv
+      - data/y_train.csv
+      - data/X_test.csv
+      - data/y_test.csv

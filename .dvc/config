@@ -2,3 +2,6 @@
     remote = origin
 ['remote "origin"']
     url = https://dagshub.com/Daniel-1309/Lab-3.dvc
+    auth = basic
+    user = Daniel-1309
+    password = 1c8dc15b5db3c45fb49db4ae093797ec9e2d5cf9

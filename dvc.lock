@@ -1,0 +1,73 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/student_salary.csv
+      hash: md5
+      md5: 41be638c046694bb01940588319f5d41
+      size: 6093708
+    - path: src/preprocess.py
+      hash: md5
+      md5: 40997cfd4d5bf8e9437b358d835dd66b
+      size: 1094
+    outs:
+    - path: data/X_test.csv
+      hash: md5
+      md5: 5d9f1bf522b57973ae29918de075ea7d
+      size: 1249231
+    - path: data/X_train.csv
+      hash: md5
+      md5: 1895c7d6c53a0e7e2d78baa715fd0051
+      size: 4996100
+    - path: data/y_test.csv
+      hash: md5
+      md5: 8af4afec2833dbf434c3b1c629aff320
+      size: 94539
+    - path: data/y_train.csv
+      hash: md5
+      md5: 3f5b18cda989ce3a035f1d5eaadb3823
+      size: 377880
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/X_train.csv
+      hash: md5
+      md5: 1895c7d6c53a0e7e2d78baa715fd0051
+      size: 4996100
+    - path: data/y_train.csv
+      hash: md5
+      md5: 3f5b18cda989ce3a035f1d5eaadb3823
+      size: 377880
+    - path: src/train.py
+      hash: md5
+      md5: 84e13268ffae7d41062acf1df07be0f4
+      size: 923
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 04fb881a2aaeacc0e0373c55daafba1b
+      size: 10046780
+  tune:
+    cmd: python src/tune.py
+    deps:
+    - path: data/X_test.csv
+      hash: md5
+      md5: 5d9f1bf522b57973ae29918de075ea7d
+      size: 1249231
+    - path: data/X_train.csv
+      hash: md5
+      md5: 1895c7d6c53a0e7e2d78baa715fd0051
+      size: 4996100
+    - path: data/y_test.csv
+      hash: md5
+      md5: 8af4afec2833dbf434c3b1c629aff320
+      size: 94539
+    - path: data/y_train.csv
+      hash: md5
+      md5: 3f5b18cda989ce3a035f1d5eaadb3823
+      size: 377880
+    - path: src/tune.py
+      hash: md5
+      md5: 8841f38087eb18c6b4c1984c4b19939b
+      size: 1678
