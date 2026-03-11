@@ -6,5 +6,5 @@ __pycache__/
 .env
 venv/
 
-# All files in the data directory
-data/*
+# # All files in the data directory
+# data/*

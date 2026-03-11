@@ -1,0 +1,5 @@
+outs:
+- md5: 41be638c046694bb01940588319f5d41
+  size: 6093708
+  hash: md5
+  path: student_salary.csv
